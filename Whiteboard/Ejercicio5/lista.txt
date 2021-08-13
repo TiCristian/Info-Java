@@ -1,0 +1,12 @@
+Carlos,Sanchez,20-01-1980,45678.08
+Matias,Sanchez,10-01-1982,45290.08
+Cristian,Ramirez,22-01-1996,33499.98
+Eduardo,Gomez,03-04-1989,43299.88
+Candela,Romero,29-01-1993,34358.21
+Maria,Cardozo,25-09-1999,30228.50
+Marcelo,Caballero,20-12-1995,68290.71
+Romina,Machuca,19-03-2000,27800.99
+Pamela,Rolon,21-03-2002,35235.24
+Paula,Ocampo,25-09-1999,30002.50
+Gabriel,Paredes,14-02-1993,52299.21
+Ramiro,Gonzalez,27-10-1998,60025.02
