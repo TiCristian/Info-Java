@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/producto")
@@ -18,7 +19,12 @@ public class ProductoController {
         this.productoRepository = productoRepository;
     }
 
-    @PostMapping
+    @GetMapping("")
+    public List<Producto> getProducto(){
+        return productoRepository.findAll();
+    }
+
+    @PostMapping("/nuevo")
     public ResponseEntity<?> createProducto(@Valid @RequestBody Producto producto){
         return new ResponseEntity<>(productoRepository.save(producto), HttpStatus.CREATED);
     }
