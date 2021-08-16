@@ -28,4 +28,9 @@ public class ProductoController {
     public ResponseEntity<?> createProducto(@Valid @RequestBody Producto producto){
         return new ResponseEntity<>(productoRepository.save(producto), HttpStatus.CREATED);
     }
+
+    @GetMapping("/busqueda")
+    public ResponseEntity<?> buscarProducto(@RequestParam ("comienzaCon") String comienzaCon){
+        return new ResponseEntity<>(productoRepository.buscarPorNombreQueComienza(comienzaCon), HttpStatus.CREATED);
+    }
 }
