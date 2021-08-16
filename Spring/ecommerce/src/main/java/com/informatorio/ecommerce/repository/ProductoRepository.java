@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
 
-    @Query("SELECT p FROM producto p WHERE p.nombre LIKE %:comienzaCon%")
+    //SELECT * FROM Producto WHERE nombre LIKE "a%"
+    @Query("SELECT p FROM Producto p WHERE p.nombre LIKE %:comienzaCon%")
     List<Producto> buscarPorNombreQueComienza(@Param("comienzaCon") String comienzaCon);
 }

@@ -27,9 +27,9 @@ public class Usuario {
     private String nombreDeUsuario;
 
     @CreationTimestamp
-    private LocalDateTime fechadecreacion;
+    private LocalDateTime fechaDeCreacion;
     @UpdateTimestamp
-    private LocalDateTime fechaultimamodificacion;
+    private LocalDateTime fechaUltimaModificacion;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Carrito> carritos = new ArrayList<>();
@@ -38,19 +38,19 @@ public class Usuario {
     public String getNombre() {return nombre;}
     public String getApellido() {return apellido;}
     public String getDireccion() {return direccion;}
-    public LocalDateTime getFechadecreacion() {return fechadecreacion;}
-    public LocalDateTime getFechaultimamodificacion() {return fechaultimamodificacion;}
+    public LocalDateTime getFechaDeCreacion() {return fechaDeCreacion;}
+    public LocalDateTime getFechaUltimaModificacion() {return fechaUltimaModificacion;}
     public String getNombreDeUsuario() {return nombreDeUsuario;}
 
     public void setId(Long id) {this.id = id;}
     public void setNombre(String nombre) {this.nombre = nombre;}
     public void setApellido(String apellido) {this.apellido = apellido;}
     public void setDireccion(String direccion) {this.direccion = direccion;}
-    public void setFechadecreacion(LocalDateTime fechadecreacion) {
-        this.fechadecreacion = fechadecreacion;
+    public void setFechaDeCreacion(LocalDateTime fechaDeCreacion) {
+        this.fechaDeCreacion = fechaDeCreacion;
     }
-    public void setFechaultimamodificacion(LocalDateTime fechaultimamodificacion) {
-        this.fechaultimamodificacion = fechaultimamodificacion;
+    public void setFechaUltimaModificacion(LocalDateTime fechaUltimaModificacion) {
+        this.fechaUltimaModificacion = fechaUltimaModificacion;
     }
     public void setNombreDeUsuario(String nombreDeUsuario) {this.nombreDeUsuario = nombreDeUsuario;}
 

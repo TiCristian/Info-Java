@@ -27,9 +27,9 @@ public class Carrito {
     private String dispositivo;
 
     @CreationTimestamp
-    private LocalDateTime fechadecreacion;
+    private LocalDateTime fechaDeCreacion;
     @UpdateTimestamp
-    private LocalDateTime fechaultimamodificacion;
+    private LocalDateTime fechaUltimaModificacion;
 
     @OneToMany(mappedBy = "carrito", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<LineaDeCarrito> lineasDeCarrito = new ArrayList<>();
@@ -58,20 +58,20 @@ public class Carrito {
         this.dispositivo = dispositivo;
     }
 
-    public LocalDateTime getFechadecreacion() {
-        return fechadecreacion;
+    public LocalDateTime getFechaDeCreacion() {
+        return fechaDeCreacion;
     }
 
-    public void setFechadecreacion(LocalDateTime fechadecreacion) {
-        this.fechadecreacion = fechadecreacion;
+    public void setFechaDeCreacion(LocalDateTime fechaDeCreacion) {
+        this.fechaDeCreacion = fechaDeCreacion;
     }
 
-    public LocalDateTime getFechaultimamodificacion() {
-        return fechaultimamodificacion;
+    public LocalDateTime getFechaUltimaModificacion() {
+        return fechaUltimaModificacion;
     }
 
-    public void setFechaultimamodificacion(LocalDateTime fechaultimamodificacion) {
-        this.fechaultimamodificacion = fechaultimamodificacion;
+    public void setFechaUltimaModificacion(LocalDateTime fechaUltimaModificacion) {
+        this.fechaUltimaModificacion = fechaUltimaModificacion;
     }
 
     public List<LineaDeCarrito> getLineasDeCarrito() {
