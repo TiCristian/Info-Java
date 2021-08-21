@@ -1,0 +1,57 @@
+#Titulo {
+    padding-bottom: 3%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+  }
+#Presentacion {
+  text-align: center;
+  padding: 20px 30px 20px 30px;
+  color: blue;
+  font-size: x-large;
+  border: 5px double;
+  text-shadow: 2px 2px 2px rgb(178, 178, 196);
+  background-image: url(../img/informatorio-1024x724.jpg);
+  background-repeat: repeat;
+  background-position: center center;
+  background-size: 100%;
+}
+html  {
+  height: 100%;
+}
+body {
+    padding: 00px 30px 10px 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+footer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 5%;
+}
+#contacto {
+  text-align: center;
+  padding: 20px 30px 20px 30px;
+  color: rgb(0, 0, 0);
+  font-size: xx-large;
+  border: 5px double;
+}
+
+#link-github{
+  padding: 00px 20px 70px 20px;
+  background-image: url(../img/github.png);
+  background-size: 5%;
+  background-repeat:no-repeat;
+  background-position: center center;
+  text-align: center;
+}
+#link-facebook{
+  padding: 00px 20px 70px 20px;
+  background-image: url(../img/facebook.png);
+  background-size: 5%;
+  background-repeat:no-repeat;
+  background-position: center center;
+  text-align: center;
+}
