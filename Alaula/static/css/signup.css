@@ -1,0 +1,50 @@
+
+
+#container-signup { 
+	margin-top: 100px;
+	margin-left: 25%;
+	margin-right: 25%;
+	margin-bottom: 100px;
+	padding-bottom: 50px;
+	padding-top: 50px;  
+	background: rgba(8, 39, 66, 50%);
+	border-radius: 20px;
+
+}
+
+#container-signup form p { 
+	padding-top: 10px;
+	
+}
+
+#container-signup input {
+	box-sizing: border-box;
+	padding: 5px;
+	border: 0.15em solid #808080;
+	border-radius: 0.5em;
+	text-align: center;
+}
+
+::-webkit-input-placeholder {
+   color: #808080;
+   text-align: center;
+
+}
+
+#container-signup .btn-primary {
+	background: rgb(239, 184, 16);
+}
+
+#container-signup h1{ 
+	color: rgb(200, 150, 41); 
+}
+
+#container-signup img { 
+	height: 200px;
+	width: 200px;
+	border-radius: 100%;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: 100% auto;	
+}
+

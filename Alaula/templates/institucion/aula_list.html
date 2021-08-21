@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Listas de aulas</title>
+  </head>
+  <body>
+    {% if object_list %}
+      <table>
+        {% for aula in object_list %}
+          <td>
+            {{aula.id}}
+          </td>
+          <td>
+            {{aula.cantidadAlumnos}}
+          </td>
+          <td>
+            {{aula.nombre_id}}
+          </td>
+        {% endfor %}
+      </table>
+
+    {% endif %}
+  </body>
+</html>

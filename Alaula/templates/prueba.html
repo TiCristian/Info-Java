@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
+{% block direcciones %}
+<li><a class="nav-link active" href="{% url 'home' %}">Home</a></li>
+<li><a class="nav-link" href="{% url 'consultas' %}">Consultas</a></li>
+<li><a class="nav-link" href="{% url 'perfil' %}">Perfil</a></li>
+{% endblock %}
+
+{% block body %}
+	<div id = "container-signup">
+			<center>
+			<img src="{% static 'images/signup.jpeg' %}">		
+			<h1><em>Registro de usuario</em></h1>
+			{{form.errors}}
+			</center>
+				
+			<form name="signup" method="POST" action="{% url 'home' %}">
+				{% csrf_token %}
+				<center>
+				<p><input type="text" name="username" placeholder="Usuario"/></p>
+        		<p><input type="email" name="email" placeholder="Email"/></p>
+        		<p><input type="text" name="nombre" placeholder="Nombre"/></p>
+        		<p><input type="text" name="apellido" placeholder="Apellido"/></p>
+        		<p><input type="password" name="contraseña" placeholder="Contraseña"/></p>
+            	<input type="submit" class ="btn btn-primary" value="REGISTRARSE">
+ 		   		</center>
+		
+			</form>
+	</div>
+{% endblock %}

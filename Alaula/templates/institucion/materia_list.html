@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Materias</title>
+  </head>
+  <body>
+    {% for materia in object_list %}
+      {{materia.nombre}}
+      {{materia.horarioCursado}}
+    {% endfor %}
+  </body>
+</html>

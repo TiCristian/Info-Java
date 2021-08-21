@@ -1,0 +1,59 @@
+{% extends 'primerbase.html' %}
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
+{% block signup %}
+	<div class="ulockd-home-slider">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="pogoSlider" id="js-main-slider">
+                          <div class="container">
+                              <div class="row">
+                                  <div class="col-md-12" style="padding-bottom: 80%">
+                                    
+	<div class="form-group" id="container-signup">
+			<h1>REGISTRATE, ES GRATIS</h1>	
+			
+			<form method="POST">
+          <p> 
+            <input type="text" name="username" maxlength="150" required="" id="id_username" placeholder="Nombre"/>
+            <span class="helptext">holaa</span> <!-- aca va el mensajito de miércoles -->
+          </p>
+          <p>
+            <label for="id_email">Dirección de email:</label> 
+            <input type="email" name="email" maxlength="254" id="id_email">
+          </p>
+          <p>
+            <label for="id_first_name">Nombre:</label> 
+            <input type="text" name="first_name" maxlength="30" id="id_first_name">
+          </p>
+          <p>
+            <label for="id_last_name">Apellido:</label> 
+            <input type="text" name="last_name" maxlength="150" id="id_last_name">
+          </p>
+          <p>
+            <label for="id_password">Contraseña:</label>
+            <input type="text" name="password" maxlength="128" required="" id="id_password">
+          </p>&gt;
+          	<input type="hidden" name="csrfmiddlewaretoken" value="tLXWzgAk9jptaNQ2cphIn2DFuHG51DdlrrE820QyNh9EwCCPQWRcgYQVdv5vXOzu">			
+          	<center>
+              <input type="submit" value="REGISTRASE">
+            </center>
+			</form>
+			
+	</div>
+
+
+                                  </div>
+                              </div>
+                          </div>
+                  </div>
+                  <!-- .pogoSlider -->
+              </div>
+          </div>
+      </div>
+
+{% endblock %}

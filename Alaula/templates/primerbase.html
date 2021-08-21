@@ -1,0 +1,172 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<!-- Basic -->
+<head>
+    {% block head %}
+    {% endblock %}
+    <link rel="shortcut icon" href="#" type="{% static 'image/x-icon' %}" />
+    <link rel="apple-touch-icon" href="#" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <!-- Pogo Slider CSS -->
+    <link rel="stylesheet" href="{% static 'css/pogo-slider.min.css' %}" />
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+</head>
+
+<body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
+
+    <!-- LOADER -->
+    <div id="preloader">
+        <div class="loader">
+            <img src="{% static 'images/loader.gif' %}" alt="#" />
+        </div>
+    </div>
+    <!-- end loader -->
+    <!-- END LOADER -->
+
+    <!-- Start header -->
+    <header class="top-header">
+        <nav class="navbar header-nav navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="image"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
+                    <ul class="navbar-nav">
+
+                    </ul>
+                </div>
+                <div class="search-box">
+                    <input type="text" class="search-txt" placeholder="Search">
+                    <a class="search-btn">
+                        <img src="{% static 'images/search_icon.png' %}" alt="#" />
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- End header -->
+
+    <!-- Start Banner -->
+    {% block banner %}
+      <div class="ulockd-home-slider">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="pogoSlider" id="js-main-slider">
+                      <div class="" style="background-image:url({% static 'images/banner_img.png' %});">
+                          <div class="container">
+                              <div class="row">
+                                  <div class="col-md-12" style="padding-bottom: 80%">
+                                    {% block signup %}
+                                    {% endblock %}
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- .pogoSlider -->
+              </div>
+          </div>
+      </div>
+    {% endblock %}
+    <!-- End Banner -->
+    <!-- section tabbar -->
+    {% block tabbar %}
+    {% endblock %}
+
+    {% block body %}
+    {% endblock %}
+	<!-- end section -->
+    <!-- Start Footer -->
+    <footer class="footer-box">
+        <div class="container">
+        
+           <div class="row">
+           
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                 <div class="footer_blog">
+                    <div class="full margin-bottom_30">
+                       <img src="{% static 'images/footer_logo.png' %}" alt="#" />
+                     </div>
+                     <div class="full white_fonts">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                     </div>
+                 </div>
+              </div>
+              
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                   <div class="footer_blog footer_menu white_fonts">
+                            <h3>Quick links</h3>
+                            <ul> 
+                              <li><a href="">> *</a></li>
+                              <li><a href="">> *</a></li>
+                              <li><a href="">> *</a></li>
+                              <li><a href="">> *</a></li>
+                              <li><a href="">> *</a></li>
+                            </ul>
+                         </div>
+                 </div>
+              
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                 <div class="footer_blog full white_fonts">
+                             <h3>Contact us</h3>
+                             <ul class="full">
+                               <li><img src="{% static 'images/i5.png' %}"><span>Resistencia<br>Chaco</span></li>
+                               <li><img src="{% static 'images/i6.png' %}"><span>alaula-contact@alaula.com</span></li>
+                               <li><img src="{% static 'images/i7.png' %}"><span>+12586954775</span></li>
+                             </ul>
+                         </div>
+                    </div>   
+              
+           </div>
+        
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <div class="footer_bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="crp">© Copyrights 2020</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" id="scroll-to-top" class="hvr-radial-out"><i class="fa fa-angle-up"></i></a>
+
+    <!-- ALL JS FILES -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/jquery.pogo-slider.min.js' %}"></script>
+    <script src="{% static 'js/slider-index.js' %}"></script>
+    <script src="{% static 'js/smoothscroll.js' %}"></script>
+    <script src="{% static 'js/form-validator.min.js' %}"></script>
+    <script src="{% static 'js/contact-form-script.js' %}"></script>
+    <script src="{% static 'js/isotope.min.js' %}"></script>
+    <script src="{% static 'js/images-loded.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+	<script src="{% static 'js/counter.js' %}"></script>
+</body>
+
+</html>

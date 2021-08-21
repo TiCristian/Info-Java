@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Site Metas -->
+    <title>Home</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+{% endblock %}
+
+
+{% block banner %}
+    <div class="ulockd-home-slider">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="pogoSlider" id="js-main-slider">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12" style="padding-bottom: 25%">
+                                    <div class="slide_text">
+                                        {% if object_list %}
+                                            {% for dia in object_list %}
+                                              {% for d in dia %}
+                                                <h3><span class="theme-color">{{d.nombre}}</span></h3>
+                                              {% endfor %}
+                                            {% endfor %}
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <!-- .pogoSlider -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block tabbar %}
+    <div class="section tabbar_menu">
+       <div class="container" >
+          <div class="row">
+              <div class="col-md-12">
+                 <div class="tab_menu">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <span class="icon">
+                            <img src="{% static 'images/i1.png' %}" alt="#" />
+                          </span>
+                          <span>Semanal</span>
+                         </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <span class="icon">
+                            <img src="{% static 'images/i2.png' %}" alt="#" /></span><span>Mensual</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <span class="icon">
+                            <img src="{% static 'images/i3.png' %}" alt="#" /></span><span>Anual</span>
+                        </a>
+                      </li>
+                    </ul>
+                 </div>
+              </div>
+          </div>
+       </div>
+    </div>
+{% endblock %}
