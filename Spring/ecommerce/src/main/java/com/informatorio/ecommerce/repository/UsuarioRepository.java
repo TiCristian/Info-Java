@@ -9,7 +9,9 @@ import java.util.List;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    List<Usuario> findByFechaDeCreacionAfter(LocalDateTime dateTime);
-    List<Usuario> findByFechaDeCreacionBetween(LocalDateTime desde, LocalDateTime hasta);
+    List<Usuario> findByFechaDeCreacionAfter(LocalDateTime fechaDeCreacion);
+    List<Usuario> findByFechaDeCreacionBetween(LocalDateTime fechaInicio, LocalDateTime fechaFin);
     Object findByNombreContainingAndApellidoContainingAndDireccionContaining(String nombre, String apellido, String direccion);
+    List<Usuario> findAllByNombreContaining(String nombre);
+    Object findAllByApellidoContaining(String apellido);
 }
