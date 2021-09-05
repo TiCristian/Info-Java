@@ -11,19 +11,42 @@ import javax.validation.Valid;
 @RequestMapping("/producto")
 public class ProductoController {
 
-    private ProductoRepository productoRepository;
+    private final ProductoRepository productoRepository;
 
     public ProductoController(ProductoRepository productoRepository) {
         this.productoRepository = productoRepository;
     }
 
     @GetMapping
-    public ResponseEntity<?> buscarProducto(@RequestParam("comienzaCon") String comienzaCon){
-        return new ResponseEntity<>(productoRepository.buscarPorNombreQueComienza(comienzaCon), HttpStatus.CREATED);
+    public ResponseEntity<?> searchProductos(@RequestParam(name = "nombre", required = false) String nombre,
+                                             @RequestParam(name = "publicado", required = false) String publicado){
+        if (nombre != null) {
+            return new ResponseEntity<>(productoRepository.findByNombreContaining(nombre), HttpStatus.OK);
+        }
+        else if (publicado != null) {
+            return new ResponseEntity<>(productoRepository.findByPublicadoContaining(publicado), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(productoRepository.findAll(), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<?> createProducto(@Valid @RequestBody Producto producto){
         return new ResponseEntity<>(productoRepository.save(producto), HttpStatus.CREATED);
+    }
+
+    @PutMapping(value = "/{id}/")
+    public Producto modifyProducto(@PathVariable("id") Long id, @RequestBody Producto producto){
+        Producto productoModificado = productoRepository.getById(id);
+        productoModificado.setNombre(producto.getNombre());
+        productoModificado.setDescripcion(producto.getDescripcion());
+        productoModificado.setContenido(producto.getContenido());
+        productoModificado.setPublicado(producto.getPublicado());
+        return productoRepository.save(productoModificado);
+    }
+
+    @DeleteMapping("/{id}/")
+        public void deleteProducto(@PathVariable("id") Long id) {
+        Producto producto = productoRepository.getById(id);
+        productoRepository.delete(producto);
     }
 }

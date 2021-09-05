@@ -1,12 +1,12 @@
 package com.informatorio.ecommerce.domain;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Positive;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Producto {
@@ -18,27 +18,27 @@ public class Producto {
     @NotBlank
     private String nombre;
     private String descripcion;
-    private String codigo;
-    private String categoria;
-    @Positive
-    private BigDecimal precio;
+    private String contenido;
+    private String publicado;
 
     @CreationTimestamp
-    private LocalDateTime fechaDeCreacion;
-    @UpdateTimestamp
-    private LocalDateTime fechaUltimaModificacion;
+    private LocalDateTime alta;
+
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Carrito> productos = new ArrayList<>();
 
     public Long getId() {return id;}
     public String getNombre() {return nombre;}
     public String getDescripcion() {return descripcion;}
-    public BigDecimal getPrecio() {return precio;}
-    public String getCodigo() {return codigo;}
-    public String getCategoria() {return categoria;}
+    public String getContenido() {return contenido;}
+    public String getPublicado() {return publicado;}
+    public LocalDateTime getAlta() {return alta;}
 
     public void setId(Long id) {this.id = id;}
     public void setNombre(String nombre) {this.nombre = nombre;}
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
-    public void setPrecio(BigDecimal precio) {this.precio = precio;}
-    public void setCodigo(String codigo) {this.codigo = codigo;}
-    public void setCategoria(String categoria) {this.categoria = categoria;}
+    public void setContenido(String contenido) {this.contenido = contenido;}
+    public void setPublicado(String publicado) {this.publicado = publicado;}
+    public void setAlta(LocalDateTime alta) {this.alta = alta;}
+
 }

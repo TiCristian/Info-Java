@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.time.LocalDate;
-import java.util.Objects;
 
 @RestController
 @RequestMapping("/usuario")
@@ -21,40 +20,37 @@ public class UsuarioController {
     }
 
     @GetMapping
-    public ResponseEntity<?> obtenerUsuarios(
-            @RequestParam(name = "fechaDeCreacion", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaDeCreacion,
-            @RequestParam(name = "fechaInicio",required = false)  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaInicio,
-            @RequestParam(name = "fechaFin",required = false)  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaFin,
-            @RequestParam(name = "nombre", required = false) String nombre,
-            @RequestParam(name = "apellido", required = false) String apellido,
-            @RequestParam(name = "direccion", required = false) String direccion) {
-        if (fechaDeCreacion != null) {
-            return new ResponseEntity<>(usuarioRepository.findByFechaDeCreacionAfter(fechaDeCreacion.atStartOfDay()), HttpStatus.OK);
+    public ResponseEntity<?> searchUsuarios(@RequestParam(name = "fechaDeCreacion", required = false)
+                                            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaDeCreacion,
+                                            @RequestParam(name = "ciudad", required = false) String ciudad){
+        if (ciudad != null) {
+            return new ResponseEntity<>(usuarioRepository.findByCiudadContaining(ciudad), HttpStatus.OK);
         }
-        else if (Objects.nonNull(nombre) && Objects.nonNull(apellido) && Objects.nonNull(direccion)) {
-            return new ResponseEntity<>(usuarioRepository.findByNombreContainingAndApellidoContainingAndDireccionContaining(
-                    nombre, apellido, direccion), HttpStatus.OK);
+        else if (fechaDeCreacion != null){
+            return new ResponseEntity<>(usuarioRepository.findByFechaDeCreacionAfter(fechaDeCreacion.atTime(00,00,00)), HttpStatus.OK);
         }
-        else if (fechaInicio != null && fechaFin != null) {
-            return new ResponseEntity<>(usuarioRepository.findByFechaDeCreacionBetween(fechaInicio.atTime(00,00,00),
-                    fechaFin.atTime(23,59,59)), HttpStatus.OK);
-        }
-        else if (nombre != null){
-            return new ResponseEntity<>(usuarioRepository.findAllByNombreContaining(nombre),HttpStatus.OK);
-        }
-        else if (apellido != null){
-            return new ResponseEntity<>(usuarioRepository.findAllByApellidoContaining(apellido),HttpStatus.OK);
-        }
-        return new ResponseEntity<>(usuarioRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(usuarioRepository.findAll(),HttpStatus.OK);
     }
 
-    @PostMapping("/nuevo")
+    @PostMapping("/new")
     public ResponseEntity<?> createUsuario(@Valid @RequestBody Usuario usuario){
         return new ResponseEntity<>(usuarioRepository.save(usuario), HttpStatus.CREATED);
     }
 
+    @PutMapping(value = "/{id}/")
+    public Usuario modifyUsuario(@PathVariable("id") Long id, @RequestBody Usuario usuario){
+        Usuario usuarioModificado = usuarioRepository.getById(id);
+        usuarioModificado.setNombre(usuario.getNombre());
+        usuarioModificado.setApellido(usuario.getApellido());
+        usuarioModificado.setEmail(usuario.getEmail());
+        usuarioModificado.setProvincia(usuario.getProvincia());
+        usuarioModificado.setCiudad(usuario.getCiudad());
+        usuarioModificado.setPais(usuario.getPais());
+        return usuarioRepository.save(usuarioModificado);
+    }
+
     @DeleteMapping("/{id}/")
-    public void borrarUsuario(@PathVariable("id") Long id) {
+    public void deleteUsuario(@PathVariable("id") Long id) {
         Usuario usuario =  usuarioRepository.getById(id);
         usuarioRepository.delete(usuario);
     }
